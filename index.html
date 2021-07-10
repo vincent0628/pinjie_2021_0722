@@ -13,8 +13,8 @@
 
 <body>
     <div id="collage">
-        <h2>郡 & 婕 Puzzle 日記</h2>
-        <h3>2021/07/22 一周年快樂 Love you!</h3>
+        <h2 style="color:#3078b4">郡 & 婕 Puzzle 日記</h2>
+        <h3 style="color: #cd4a77 ">2021/07/22 一周年快樂 Love you!</h3>
         <hr />
         <div id="playPanel" style="padding:5px;display:none;">
             <h3 id="imgTitle"></h3> <hr />
@@ -31,7 +31,7 @@
                     <div>Re-arrange to create a picture like this.</div>
 
                     <p id="levelPanel">
-                        <input type="radio" name="level" id="simple" value="2" /> <label for="simple">Simple</label>
+                        <input type="radio" name="level" id="simple" value="6" /> <label for="simple">Simple</label>
                         <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Easy</label>
                         <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
                         <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
@@ -51,21 +51,25 @@
             </div>
         </div>
         <div id="gameOver" style="display:none;">
-            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
-                <h2 style="text-align:center">YA 你最棒惹 過關!</h2>
-                鼻 一周年快樂 <br /> 
-                以後我開始上班，我還是會一直在你旁邊呦!<br />
-                我會好好的保護你，不斷進步<br />
-                不斷學習怎麼愛你，找到工作和愛你的平衡<br />
-                你要相信我喔!<br />
-                未來目標 要繼續跟你到處吃 到處玩<br /><br />
+            <div style="background-color: #98b2d1 ; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center; color: white ">YA 你最棒惹 過關!</h2>
+                鼻 一周年快樂~ <br /> 
+                希望我的寶貝 接下來學業順利 平安快樂度過每一天 <br /> 
+                以後我開始上班，我的心一直在你旁邊呦!<br />
+                我會好好的保護你、想你<br />
+                不斷進步，不斷學習怎麼愛你!<br />
+                找到工作和愛你的平衡!<br />
+                你要相信我喔!<br /><br />
+                未來目標 : 繼續跟你到處吃 到處玩<br /><br />
                 你不用多好，我喜歡就好。<br />
                 喜歡你，是我做過最好的決定。<br /><br />
 
                 
                 Steps: <span class="stepCount">0</span> steps.
                 <br />
-                Time Taken: <span class="timeCount">0</span> seconds<br />
+                Time Taken: <span class="timeCount">0</span> seconds.<br />
+                <br />
+
                 <div>
                     <button type="button" onclick="window.location.reload(true);">Play Again</button>
                 </div>
@@ -74,8 +78,8 @@
 
         <script>
             var images = [
-                { src: 'images/新竹巧遇的湖中女神.jpg', title: '新竹巧遇的湖中女神' },
-                { src: 'images/Hey大稻埕.jpg', title: 'Hey大稻埕' },
+                { src: 'images/新竹巧遇的湖中女神.jpg', title: '湖中女神' },
+                { src: 'images/Hey大稻埕.jpg', title: 'Hey! 大稻埕' },
                 { src: 'images/象山我腳軟了.jpg', title: '象山我腳軟了' },
                 { src: 'images/愛大狗狗的美少女.jpg', title: '愛大狗狗的美少女' },
                 { src: 'images/湯姆熊騎毆鬥賣.jpg', title: '湯姆熊騎毆鬥賣' },
@@ -85,7 +89,9 @@
                 { src: 'images/博恩ya.jpg', title: '博恩ya' },
                 { src: 'images/你好可愛第一次約會就偷拍你.jpg', title: '你好可愛 第一次約會就偷拍你' },
                 { src: 'images/我要親爆你.jpg', title: '我要親爆你' },
-                { src: 'images/要跟好喔天天視訊天天打game.jpg', title: '要跟好喔 天天視訊 天天打game' },
+                { src: 'images/game.jpg', title: '要跟好喔 天天視訊 天天打game' },
+                { src: 'images/你是我的小可愛.jpg', title: '你是我的小可愛 世界最可愛' },
+
             ];
 
             $(function () {
@@ -115,7 +121,7 @@
                 alert('完成拼圖 就會有彩蛋喔');
             }
             function about() {
-                alert('這是我與品ㄗㄟˊ的拼圖日記');
+                alert('這是我與品ㄗㄟˊ的拼圖日記\n品ㄗㄟˊ是一個賊，不偷金，不偷銀，偷走我的心');
             }
         </script>
         <script src="js/audioplayer.js"></script>
