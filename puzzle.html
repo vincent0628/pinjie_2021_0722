@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>郡 & 婕 Puzzle 日記</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/image-puzzle.js"></script>
+    <link rel="stylesheet" href="css/audioplayer.css" />
+
+</head>
+
+<body>
+    <div id="collage">
+        <h2>郡 & 婕 Puzzle 日記</h2>
+        <h3>2021/07/22 一周年快樂 Love you!</h3>
+        <hr />
+        <div id="playPanel" style="padding:5px;display:none;">
+            <h3 id="imgTitle"></h3> <hr />
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Steps:</div><div class="stepCount">0</div>
+                    </div>
+                    <div id="timeBox">
+                        Time Taken: <span id="timerPanel"></span> secs
+                    </div>
+                    <img id="actualImage" />
+                    <div>Re-arrange to create a picture like this.</div>
+
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="simple" value="2" /> <label for="simple">Simple</label>
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Easy</label>
+                        <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
+                        <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
+                    </p>
+
+                    <div>
+                        <button id="btnRule" type="button" class="btn" onclick="rules();">Rules</button>
+                        <button id="newPhoto" type="button" class="btn">Another Photo</button>
+                        <button id="btnReplay" type="button" class="btn" onclick="about();">About</button>
+                    </div>
+                </div>
+                <div>
+                    <audio preload="auto"  controls>
+                      <source src="./A_Lin_大大的擁抱mp3cut.mp3" type="audio/mp3">
+                    </audio>
+                  </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center">YA 你最棒惹 過關!</h2>
+                鼻 一周年快樂 <br /> 
+                以後我開始上班，我還是會一直在你旁邊呦!<br />
+                我會好好的保護你，不斷進步<br />
+                不斷學習怎麼愛你，找到工作和愛你的平衡<br />
+                你要相信我喔!<br />
+                未來目標 要繼續跟你到處吃 到處玩<br /><br />
+                你不用多好，我喜歡就好。<br />
+                喜歡你，是我做過最好的決定。<br /><br />
+
+                
+                Steps: <span class="stepCount">0</span> steps.
+                <br />
+                Time Taken: <span class="timeCount">0</span> seconds<br />
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var images = [
+                { src: 'images/新竹巧遇的湖中女神.jpg', title: '新竹巧遇的湖中女神' },
+                { src: 'images/Hey大稻埕.jpg', title: 'Hey大稻埕' },
+                { src: 'images/象山我腳軟了.jpg', title: '象山我腳軟了' },
+                { src: 'images/愛大狗狗的美少女.jpg', title: '愛大狗狗的美少女' },
+                { src: 'images/湯姆熊騎毆鬥賣.jpg', title: '湯姆熊騎毆鬥賣' },
+                { src: 'images/台北跨年好High.jpg', title: '台北跨年好High' },
+                { src: 'images/北投回來累壞a寶.jpg', title: '北投回來累壞a寶' },
+                { src: 'images/喜歡你黏住我.jpg', title: '喜歡你黏住我' },
+                { src: 'images/博恩ya.jpg', title: '博恩ya' },
+                { src: 'images/你好可愛第一次約會就偷拍你.jpg', title: '你好可愛 第一次約會就偷拍你' },
+                { src: 'images/我要親爆你.jpg', title: '我要親爆你' },
+                { src: 'images/要跟好喔天天視訊天天打game.jpg', title: '要跟好喔 天天視訊 天天打game' },
+            ];
+
+            $(function () {
+                $('audio').audioPlayer();
+                var gridSize = $('#levelPanel :radio:checked').val();
+                imagePuzzle.startGame(images, gridSize);
+                num = 0
+                $('#newPhoto').click(function () {
+                    var gridSize = $('#levelPanel :radio:checked').val();  // Take the updated gridSize from UI.                    
+                    if (num>=images.length-1){
+                        num =0;
+                    }else{
+                        num+=1
+                    }
+                    imagePuzzle.startGame(images, gridSize,num);
+                });
+
+                $('#levelPanel :radio').change(function (e) {
+                    var gridSize = $(this).val();
+                    if (gridSize == '6') {
+                    alert('不要偷懶，Easy 很簡單了 懲罰你變更難!');
+                    }   
+                    imagePuzzle.startGame(images, gridSize);
+                });
+            });
+            function rules() {
+                alert('完成拼圖 就會有彩蛋喔');
+            }
+            function about() {
+                alert('這是我與品ㄗㄟˊ的拼圖日記');
+            }
+        </script>
+        <script src="js/audioplayer.js"></script>
+
+    </div>
+</body>
+</html>
